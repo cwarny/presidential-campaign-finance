@@ -1,0 +1,60 @@
+html, body {
+	height: 100%;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.area {
+	fill: steelblue;
+}
+
+.line {
+	fill: none;
+	stroke-width: 1.5px;
+}
+
+text {
+	font: 10px sans-serif;
+}
+
+.clipme {
+	-webkit-clip-path: circle(40px at 50px 60px);
+	clip-path: circle(40px at 50px 60px);
+}
+
+a.title {
+	color: black;
+}
+
+.nav > li > a.title:hover, .nav > li > a.title:focus {
+	background-color: transparent;
+}
+
+.states {
+	fill: #ccc;
+	stroke: #fff;
+}
+
+.symbol {
+	fill: steelblue;
+	fill-opacity: .8;
+	stroke: #fff;
+}
+
+.liquid-container > img {
+	z-index: 10;
+}

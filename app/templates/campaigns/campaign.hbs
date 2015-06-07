@@ -1,0 +1,55 @@
+<hr>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="col-xs-4">
+			<ul class="nav nav-pills">
+				<li><a class="title"><strong>Cycle:</strong></a></li>
+				{{#link-to "campaigns.campaign" (query-params cycle="P") tagName="li"}}
+					<a href>Primary</a>
+				{{/link-to}}
+				{{#link-to "campaigns.campaign" (query-params cycle="G") tagName="li"}}
+					<a href>General</a>
+				{{/link-to}}
+			</ul>
+		</div>
+		<div class="col-xs-4">
+			<ul class="nav nav-pills">
+				<li><a class="title"><strong>Party:</strong></a></li>
+				{{#link-to "campaigns.campaign" (query-params party="D") tagName="li"}}
+					<a href>Democrat</a>
+				{{/link-to}}
+				{{#link-to "campaigns.campaign" (query-params party="R") tagName="li"}}
+					<a href>Republican</a>
+				{{/link-to}}
+			</ul>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="col-xs-6">
+			{{multi-timeline data=timelineData}}
+		</div>
+		<div class="col-xs-6">
+			{{symbol-map data=geoData topology=controllers.campaigns.model.topology}}
+		</div>
+	</div>
+</div>
+<div class="row" id="candidates">
+	<div class="col-xs-12">
+		{{#liquid-with candidates_per_party as parties}}
+			{{#each parties as |party|}}
+				<div class="row">
+					<div class="col-xs-12">
+						{{#each party.items as |candidate|}}
+							{{#link-to "campaigns.campaign.candidate" model candidate}}
+								<img class="clipme" src={{candidate.pic_url}} candidate-photo-id={{candidate.candidate_id}}>
+							{{/link-to}}
+						{{/each}}
+					</div>
+				</div>
+			{{/each}}
+		{{/liquid-with}}
+	</div>
+</div>

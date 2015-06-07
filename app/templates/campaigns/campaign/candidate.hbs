@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>Candidate Profile</h2>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-2">
+		<img class="clipme" src={{model.pic_url}} candidate-photo-id={{model.candidate_id}}>
+		<div><strong>{{model.name}}</strong> ({{model.party}})</div>
+	</div>
+	<div class="col-md-10">
+		{{#if model.summary_note}}
+			<blockquote>
+				<p>{{model.summary_note}}</p>
+			</blockquote>
+		{{/if}}
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Amount</th>
+					<th>Party rank</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Total contributions</th>
+					<td>{{currency-format model.total_contributions}}</td>
+					<td>{{model.total_receipts_party_rank}}</td>
+				</tr>
+				<tr>
+					<th scope="row">Total disbursements</th>
+					<td>{{currency-format model.total_disbursements}}</td>
+					<td>{{model.total_disbursements_party_rank}}</td>
+				</tr>
+				<tr>
+					<th scope="row">Cash on hand</th>
+					<td>{{currency-format model.cash_on_hand}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">Max contribution</th>
+					<td>{{currency-format model.contributions_max}}</td>
+					<td>{{model.contributions_max_party_rank}}</td>
+				</tr>
+				<tr>
+					<th scope="row">Net individual contributions</th>
+					<td>{{currency-format model.net_individual_contributions}}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">Net PAC contributions</th>
+					<td>{{currency-format model.net_pac_contributions}}</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
