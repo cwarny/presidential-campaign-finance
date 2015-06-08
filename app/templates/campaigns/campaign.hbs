@@ -38,18 +38,20 @@
 </div>
 <div class="row" id="candidates">
 	<div class="col-xs-12">
-		{{#liquid-with candidates_per_party as parties}}
-			{{#each parties as |party|}}
-				<div class="row">
-					<div class="col-xs-12">
-						{{#each party.items as |candidate|}}
-							{{#link-to "campaigns.campaign.candidate" model candidate}}
-								<img class="clipme" src={{candidate.pic_url}} candidate-photo-id={{candidate.candidate_id}}>
-							{{/link-to}}
-						{{/each}}
+		{{#liquid-with model as currentModel}}
+			<div election-year={{currentModel.features.election_year}} class="kaboum">
+				{{#each candidates_per_party as |party|}}
+					<div class="row">
+						<div class="col-xs-12">
+							{{#each party.items as |candidate|}}
+								{{#link-to "campaigns.campaign.candidate" model candidate}}
+									<img class="clipme" src={{candidate.pic_url}} candidate-photo-id={{candidate.candidate_id}}>
+								{{/link-to}}
+							{{/each}}
+						</div>
 					</div>
-				</div>
-			{{/each}}
+				{{/each}}
+			</div>
 		{{/liquid-with}}
 	</div>
 </div>

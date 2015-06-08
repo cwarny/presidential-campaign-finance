@@ -1,29 +1,43 @@
 export default function() {
 	// this.transition(
 	// 	this.debug(),
-	// 	this.fromModel(function(newModel, oldModel) {
-	// 		debugger;
-	// 		console.log("hey");
-	// 		return oldModel && newModel && oldModel.get("election_year") > newModel.get("election_year");
+	// 	this.inHelper("liquid-with"),
+	// 	this.toValue(function(newValue, oldValue) {
+	// 		return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year > oldValue.features.election_year;
 	// 	}),
-	// 	this.use("to-left")
+	// 	this.use("explode", {
+	// 		pickOld: ".kaboum",
+	// 		use: ["toLeft", { duration: 1000, movingSide: "old" }]
+	// 	}, {
+	// 		pickNew: ".kaboum",
+	// 		use: ["toLeft", { duration: 1000, movingSide: "new"} ]
+	// 	})
+	// );
+
+	// this.transition(
+	// 	this.debug(),
+	// 	this.inHelper("liquid-with"),
+	// 	this.toValue(function(newValue, oldValue) {
+	// 		return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year < oldValue.features.election_year;
+	// 	}),
+	// 	this.use("explode", {
+	// 		pickOld: ".kaboum",
+	// 		use: ["toRight", { duration: 1000, movingSide: "old" }]
+	// 	}, {
+	// 		pickNew: ".kaboum",
+	// 		use: ["toRight", { duration: 1000, movingSide: "new" }]
+	// 	})
 	// );
 
 	this.transition(
 		this.debug(),
 		this.inHelper("liquid-with"),
-		this.use("fade")
+		this.toValue(function(newValue, oldValue) {
+			return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year < oldValue.features.election_year;
+		}),
+		this.use("toRight"),
+		this.reverse("toLeft")
 	);
-
-	// this.transition(
-	// 	this.debug(),
-	// 	this.toModel(function(newModel, oldModel) {
-	// 		debugger;
-	// 		console.log("yo");
-	// 		return oldModel && newModel && oldModel.get("election_year") < newModel.get("election_year");
-	// 	}),
-	// 	this.use("to-right")
-	// );
 
 	this.transition(
 		this.debug(),
