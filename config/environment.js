@@ -24,7 +24,7 @@ module.exports = function(environment) {
     'script-src': "'self'",
     'font-src': "'self'",
     'connect-src': "'self'",
-    'img-src': "'self' http://upload.wikimedia.org",
+    'img-src': "'self' http://upload.wikimedia.org http://bl.ocks.org",
     'style-src': "'self' 'unsafe-inline'", // Allow inline styles
     'media-src': "'self'"
   };

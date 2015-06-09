@@ -45,13 +45,6 @@ export default Ember.Controller.extend({
 		});
 	}.property("model.features", "cycle", "party"),
 
-	candidates_per_party: groupBy("model.features.candidates", "party"),
-
-	actions: {
-		shuffle: function() {
-			var shuffled_candidates = _.shuffle(this.get("model.features.candidates"));
-			this.set("model.features.candidates", shuffled_candidates);
-		}
-	}
+	candidates_per_party: groupBy("model.features.candidates", "party")
 
 });

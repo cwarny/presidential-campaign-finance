@@ -1,42 +1,12 @@
 export default function() {
-	// this.transition(
-	// 	this.debug(),
-	// 	this.inHelper("liquid-with"),
-	// 	this.toValue(function(newValue, oldValue) {
-	// 		return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year > oldValue.features.election_year;
-	// 	}),
-	// 	this.use("explode", {
-	// 		pickOld: ".kaboum",
-	// 		use: ["toLeft", { duration: 1000, movingSide: "old" }]
-	// 	}, {
-	// 		pickNew: ".kaboum",
-	// 		use: ["toLeft", { duration: 1000, movingSide: "new"} ]
-	// 	})
-	// );
-
-	// this.transition(
-	// 	this.debug(),
-	// 	this.inHelper("liquid-with"),
-	// 	this.toValue(function(newValue, oldValue) {
-	// 		return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year < oldValue.features.election_year;
-	// 	}),
-	// 	this.use("explode", {
-	// 		pickOld: ".kaboum",
-	// 		use: ["toRight", { duration: 1000, movingSide: "old" }]
-	// 	}, {
-	// 		pickNew: ".kaboum",
-	// 		use: ["toRight", { duration: 1000, movingSide: "new" }]
-	// 	})
-	// );
-
 	this.transition(
 		this.debug(),
 		this.inHelper("liquid-with"),
 		this.toValue(function(newValue, oldValue) {
 			return newValue && newValue.features && newValue.features.election_year && oldValue && oldValue.features && oldValue.features.election_year && newValue.features.election_year < oldValue.features.election_year;
 		}),
-		this.use("toRight"),
-		this.reverse("toLeft")
+		this.use("toRight", { duration: 1000 }),
+		this.reverse("toLeft", { duration: 1000 })
 	);
 
 	this.transition(
